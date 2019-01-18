@@ -1,0 +1,49 @@
+Compilar y cargar un modulo de kernel en linux
+
+Instalar compilador y librerias escenciales (gcc, gcc, make, dpkg-dev, libc6-dev)
+    sudo apt-get update
+    sudo apt-get install build-essential checkinstall
+
+Instalar cabecera del kernel
+    buscar la version del kernel
+        apt-cache search linux-headers-$(uname -r)
+    Instalar la cabecera
+        sudo apt-get install linux-headers-$(uname -r)
+    Si se quiere revisar
+        cd /usr/src/linux-headers-4.2.0-16-generic
+
+Compilar
+    make
+
+Para ver los mensajes
+    sudo su -
+    cd /var/log
+    tail -f kern.log
+
+Instalar
+    sudo insmod hola_lkm.ko
+
+Ver
+    lsmod
+    modinfo hola_lkm.ko
+
+    Otro modo para ver direccion en memoria
+        cd /proc
+        cat modules|grep hola_lkm
+
+Remover
+    sudo rmmod hola_lkm.ko
+
+*extra parametro
+    sudo insmod driver.ko nombre=Rene
+
+*extra ver mas detalles
+    cd /sys/module
+    ls -l|grep hola_lkm
+
+
+Referencias
+    https://help.ubuntu.com/community/CompilingSoftware
+    http://www.cyberciti.biz/faq/howto-install-kernel-headers-package/
+    http://derekmolloy.ie/writing-a-linux-kernel-module-part-1-introduction/
+    http://www.tldp.org/LDP/lkmpg/2.6/html/lkmpg.html
