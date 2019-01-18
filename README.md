@@ -36,15 +36,16 @@ Hola mundo version driver de linux
 ```tail -f kern.log```<br>
 
 ### Remover
-    sudo rmmod hola_lkm.ko
+
+```sudo rmmod hola_lkm.ko```
     
 # Notas
-Con parámetro
-    - sudo insmod driver.ko nombre=Rene
+Con parámetro<br>
+    ```sudo insmod driver.ko nombre=Rene```<br>
 
-Ver más detalles
-    - cd /sys/module
-    - ls -l|grep hola_lkm
+Ver más detalles<br>
+    ```cd /sys/module```<br>
+    ```ls -l|grep hola_lkm```<br>
 
 # Referencias
 [Help Ubuntu - CompilingSoftware](https://help.ubuntu.com/community/CompilingSoftware)<br>
